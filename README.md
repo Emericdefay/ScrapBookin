@@ -1,7 +1,7 @@
 # ScrapBookin
 ### Projet 2 - OCR
 Ce projet permet de scraper des informations d'un site d'exercice : http://books.toscrape.com/
-Les informations scrapés sont : 
+<br/>Les informations scrapés sont : 
 * L'ID de l'article : universal_product_code
 * Le titre : title
 * Le prix TTC : price_including_tax
