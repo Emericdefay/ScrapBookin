@@ -11,3 +11,7 @@ Les informations scrapés sont :
 * La catégorie : category
 * L'évalution : review_rating
 * L'url de l'image : image_url
+## Installation
+à rédiger
+## Usage
+à rédiger
