@@ -15,16 +15,23 @@ from bs4 import BeautifulSoup
 # librairies pour trouver le chemin d'accès
 import os
 import sys
+# Librairie time
+import time
+
+
+print('lancement programme')
 
 
 ### Définitions :
 #
 # Gestion de dossiers/fichiers.
+
 def pathtofolder():
-    return os.path.dirname(sys.argv[0])
+    return os.getcwd()
 
 def createdatafolder(name):
-    os.mkdir(pathtofolder() + '\\' + name)
+    folder = os.path.join(pathtofolder(),name)
+    os.makedirs(folder)
     pass
 
 def datafolderexist(name):
@@ -57,6 +64,17 @@ def addcsv(data, filename):
         csv.write('\n')
     pass
 
+
+# Gestion des images
+
+def downloadpic(url, name, path):
+    a = requests.get(url)
+
+    checkfolderdata(path)
+    print("1")
+    with open(path+'\\{}.jpg'.format(name), "wb") as pic:
+        pic.write(a.content)
+    pass
 
 
 # Scrapeur
@@ -106,6 +124,9 @@ def scrapOne(url):
     image_url = picture
     datas = '; '.join(list(map(str, (product_page_url, universal_product_code, title, price_including_tax, price_excluding_tax, number_available, product_description, category, review_rating, image_url))))
     #print(datas)
+
+    checkfolderdata("pictures")
+    downloadpic(image_url, universal_product_code, "pictures\\{}".format(category))
 
     return datas, category
 
@@ -220,11 +241,17 @@ def main(url):
     pass
 
 
-
 # Action Debbugage
 if __name__ == '__main__':
+
     try:
+        temps1 = time.time()
         url = "http://books.toscrape.com/"
+        print("Scraping du site : {}".format(url))
         main(url)
+        temps2 = time.time()
+        duree = temps2 - temps1
+        print("Temps total pour scraper le site entier : {} minutes et {} secondes.".format(round(duree)//60, round(duree)%60))
+
     except KeyboardInterrupt:
         pass
