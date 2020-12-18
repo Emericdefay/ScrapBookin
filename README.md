@@ -13,6 +13,12 @@ Les informations scrapés sont :
 * L'évalution : review_rating
 * L'url de l'image : image_url
 
+# Axes d'amélioration
+- [ ] Vérification de données existantes dans les fichiers .csv
+- [ ] Edition du chemin pour écrire les données.
+- [ ] Lecteur : en fonction de l'UPC, donne le prix du livre.
+- [ ] Fonction de mise à jour, qui n'efface pas les données déjà extraites.
+
 ## Installation
 Avant de pouvoir utiliser ce programme, vous devrez procédez à quelques installations.
 ### 1. Clonage
@@ -28,6 +34,14 @@ Tapez : `pip install -r requirements.txt`.
 
 ## Usage
 Vous êtes maintenant prêt à utiliser le scraper.<br/>
-Pour se faire, restez sur votre terminal.
-Tapez : `python -u ScrapBookin.py`.
+Pour se faire, restez sur votre terminal.<br/>
+Tapez : `python -u ScrapBookin.py`.<br/>
 Le -u permet de suivre l'avancement du programme.
+
+## Structure et informations.
+Ce programme créé et structure les données dans deux dossiers distincts :
+- Le dossier datas : Contient les fichiers .csv, représentants chacune des catégories du site.
+- Le dossier pictures : Contient les dossiers d'images au format .jpg pour chacune des catégorie du site.
+Attention : Si vous utilisez le programme plus d'une fois, les fichiers .csv seront corrumpus. Veuillez à copier les données et à les isoler du dossier ScrapBookin.
+
+
